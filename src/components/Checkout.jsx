@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/checkout.css'
+import '../styles/checkout.css';
 
 const Checkout = () => {
   const [formData, setFormData] = useState({
     name: '',
     address: '',
-    payment: ''
+    paymentCardNumber: '',
+    paymentExpiry: '',
+    paymentCVV: '',
   });
 
   const [cartItems, setCartItems] = useState([]);
   const [orderPlaced, setOrderPlaced] = useState(false);
-  const [loading, setLoading] = useState(false); // New state for loading spinner
-  const [errors, setErrors] = useState({}); // Error state for form validation
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
-    // Load cart items from localStorage
     const storedCart = JSON.parse(localStorage.getItem('cartItems')) || [];
     setCartItems(storedCart);
   }, []);
@@ -23,7 +24,9 @@ const Checkout = () => {
     const newErrors = {};
     if (!formData.name) newErrors.name = 'Name is required';
     if (!formData.address) newErrors.address = 'Address is required';
-    if (!formData.payment) newErrors.payment = 'Payment details are required';
+    if (!formData.paymentCardNumber) newErrors.paymentCardNumber = 'Card number is required';
+    if (!formData.paymentExpiry) newErrors.paymentExpiry = 'Expiry date is required';
+    if (!formData.paymentCVV) newErrors.paymentCVV = 'CVV is required';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -35,32 +38,24 @@ const Checkout = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Validate the form before submitting
     if (!validateForm()) {
       return;
     }
 
-    // Simulate a loading spinner
     setLoading(true);
-
-    // Simulate a delay for order processing
     setTimeout(() => {
-      // Simulate checkout process
       console.log('Order details:', formData);
-
-      // Clear cart and show order placed message
       localStorage.removeItem('cartItems');
       setOrderPlaced(true);
-      setLoading(false); // Turn off loading spinner
-    }, 2000); // 2-second delay to simulate order processing
+      setLoading(false);
+    }, 2000);
   };
 
   if (loading) {
     return (
       <div className="loading-spinner">
+        <div className="spinner"></div>
         <p>Processing your order...</p>
-        {/* You can add a CSS animation for the spinner here */}
       </div>
     );
   }
@@ -101,7 +96,8 @@ const Checkout = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            autoComplete="name" // Added autocomplete attribute
+            autoComplete="name"
+            placeholder="John Doe"
           />
           {errors.name && <p className="error">{errors.name}</p>}
         </div>
@@ -113,21 +109,52 @@ const Checkout = () => {
             value={formData.address}
             onChange={handleChange}
             required
-            autoComplete="street-address" // Added autocomplete attribute
+            autoComplete="street-address"
+            placeholder="123 Main St, Apt 4B"
           />
           {errors.address && <p className="error">{errors.address}</p>}
         </div>
         <div>
-          <label>Payment Details</label>
+          <label>Card Number</label>
           <input
             type="text"
-            name="payment"
-            value={formData.payment}
+            name="paymentCardNumber"
+            value={formData.paymentCardNumber}
             onChange={handleChange}
             required
-            autoComplete="cc-number" // Added autocomplete attribute
+            autoComplete="cc-number"
+            placeholder="1234 5678 9012 3456"
+            maxLength={19}
           />
-          {errors.payment && <p className="error">{errors.payment}</p>}
+          {errors.paymentCardNumber && <p className="error">{errors.paymentCardNumber}</p>}
+        </div>
+        <div>
+          <label>Expiry Date</label>
+          <input
+            type="text"
+            name="paymentExpiry"
+            value={formData.paymentExpiry}
+            onChange={handleChange}
+            required
+            autoComplete="cc-exp"
+            placeholder="MM/YY"
+            maxLength={5}
+          />
+          {errors.paymentExpiry && <p className="error">{errors.paymentExpiry}</p>}
+        </div>
+        <div>
+          <label>CVV</label>
+          <input
+            type="password"
+            name="paymentCVV"
+            value={formData.paymentCVV}
+            onChange={handleChange}
+            required
+            autoComplete="cc-csc"
+            placeholder="123"
+            maxLength={3}
+          />
+          {errors.paymentCVV && <p className="error">{errors.paymentCVV}</p>}
         </div>
         <button type="submit">Place Order</button>
       </form>

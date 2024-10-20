@@ -1,4 +1,5 @@
-/* Mobile-first: Default Styling */
+@import url(https://fonts.googleapis.com/css2?family=Beau+Rivage&display=swap);
+
 .welcome-page {
     position: relative;
     width: 100%;
@@ -37,7 +38,8 @@
 /* Heading Styling */
 .welcome-page h1 {
     font-size: 2.5rem; /* Increased for better prominence */
-    font-family: 'Playfair Display', serif;
+    font-family: "Beau Rivage", cursive;
+  /* font-weight: 400; */
     font-weight: bold;
     margin-bottom: 20px;
     line-height: 1.3;

@@ -1,81 +1,122 @@
-/* MainNavbar container */
+/* Main Navbar Container */
 .mainnavbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* padding: 15px 20px; */
   background-color: #000; /* Black background */
-  padding: 10px 20px;
-  height: 60px;
+  color: #fff; /* White text */
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 95%;
   z-index: 1000;
+  transition: all 0.3s ease; /* Smooth transition */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
 }
 
-/* Left section (Men, Women, Kaba) */
-.mainnavbar-left {
-  display: flex;
-  gap: 20px; /* Space between links */
-}
-
-.mainnavbar-left a {
-  text-decoration: none;
-  color: #fff; /* White text */
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.mainnavbar-left a:hover {
-  color: #ccc; /* Slightly lighter on hover */
-}
-
-/* Center section (Meadin Fashion) */
+/* Center Section: Meadin Fashion Title & Menu Icon */
 .mainnavbar-center {
-  flex-grow: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
 }
 
+/* Style for the Name (Meadin Fashion) */
 .mainnavbar-center p {
-  font-size: 1.5em;
+  font-size: 1.8rem;
   font-weight: bold;
-  font-family: 'Playfair Display', serif; /* Luxurious font */
-  color: #fff; /* White text */
+  color: white;
+  font-family: 'Playfair Display', serif; /* Elegant font */
   margin: 0;
 }
 
-/* Right section (Home, Cart) */
-.mainnavbar-right {
-  display: flex;
-  gap: 20px; /* Space between links */
+/* Styling the Menu Icon (☰ or ✖) */
+.menu-icon {
+  font-size: 2rem;
+  cursor: pointer;
+  display: block; /* Show by default for mobile (small screen) */
+  color: white;
+  position: absolute;
+  right: 20px; /* Aligns the icon on the right */
+  transition: transform 0.3s ease;
 }
 
-.mainnavbar-right a {
+/* Hide the links initially for mobile */
+.mainnavbar-links {
+  display: none;
+  flex-direction: column;
+  text-align: center;
+  position: absolute;
+  top: 60px; /* Below the navbar */
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  padding: 15px 0;
+  z-index: 999;
+  border-radius: 0 0 10px 10px;
+  transition: all 0.3s ease-in-out; /* Smooth dropdown effect */
+}
+
+/* Show nav links when toggle is clicked */
+.mainnavbar-links.show {
+  display: flex;
+}
+
+/* Links inside nav */
+.mainnavbar-left, .mainnavbar-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Link styling */
+.mainnavbar-links a {
+  color: white;
+  font-size: 1.3rem;
+  padding: 10px 0;
   text-decoration: none;
-  color: #fff; /* White text */
-  font-weight: bold;
+  font-weight: 500;
   transition: color 0.3s ease;
 }
 
-.mainnavbar-right a:hover {
-  color: #ccc; /* Slightly lighter on hover */
+.mainnavbar-links a:hover {
+  color: #8b3fa9; /* Highlight on hover */
+  border-bottom: 2px solid #8b3fa9;
 }
 
-/* Responsive styling */
-@media (max-width: 768px) {
-  .mainnavbar {
-    flex-direction: column;
-    height: auto;
-    padding: 20px 10px; /* Adjust padding for mobile */
+/* Responsive design: on larger screens */
+@media (min-width: 768px) {
+  /* Hide the menu icon on larger screens */
+  .menu-icon {
+    display: none;
   }
 
-  .mainnavbar-left,
+  /* Show links in a horizontal row */
+  .mainnavbar-links {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    justify-content: space-between;
+    background-color: transparent;
+    padding: 0;
+    width: auto;
+  }
+
+  /* Style links for larger screens */
+  .mainnavbar-left {
+    flex-direction: row;
+    gap: 20px; /* Space between links */
+  }
+
   .mainnavbar-right {
-    justify-content: center;
-    margin-top: 10px;
+    flex-direction: row;
+    gap: 20px; /* Space between links */
   }
 
-  .mainnavbar-center {
-    margin-bottom: 10px;
+  /* Link hover effect */
+  .mainnavbar-links a:hover {
+    color: #8b3fa9; /* Same hover effect for larger screens */
+    border-bottom: 2px solid #8b3fa9;
   }
 }

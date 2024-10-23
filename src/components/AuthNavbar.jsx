@@ -8,7 +8,7 @@ const AuthNavbar = () => {
       <div className="authnavbar-left">
         <Link to="/signin">Sign In</Link>
         <Link to="/signup">Sign Up</Link>
-        <Link to="/guest">Continue as Guest</Link>
+        
       </div>
       
       <div className="authnavbar-center">

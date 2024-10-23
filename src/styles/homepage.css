@@ -4,18 +4,21 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 200vh;
+  min-height: 100vh;
   background-color: #000; /* Black background */
   text-align: center;
-  padding: 20px;
+  padding: 20px 15px; /* Consistent padding for mobile */
+  box-sizing: border-box; /* Ensure padding and border are included in total width/height */
 }
 
 /* Homepage Title Styling */
 .homepage-title {
-  font-size: 1.8em;
+  font-size: 2rem; /* Slightly larger for mobile */
   font-family: 'Playfair Display', serif;
   color: #fff; /* White text */
   margin-bottom: 20px;
+  padding: 0 10px; /* Padding for narrow screens */
+  line-height: 1.2;
 }
 
 /* Fashion Choices Section for Mobile */
@@ -23,14 +26,14 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 20px;
+  gap: 20px; /* Spacing between fashion choices */
 }
 
 /* Fashion Choice Section */
 .fashion-choice {
   position: relative;
   width: 100%;
-  height: 50vh; /* Adjusted height for mobile */
+  height: 45vh; /* Adjusted height for better mobile view */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -40,7 +43,7 @@
   font-family: 'Playfair Display', serif;
   font-weight: bold;
   color: white;
-  font-size: 1.8em;
+  font-size: 1.5rem; /* More readable size for mobile */
   transition: all 0.3s ease-in-out;
   background-color: rgba(255, 255, 255, 0.1); /* Light transparent overlay */
 }
@@ -48,13 +51,13 @@
 /* Men's Section Background */
 .men-choice {
   background-image: url('../assets/Images/mens/greenman.png');
-  background-color: rgba(0, 0, 0, 0.8); /* Darker overlay for black theme */
+  background-color: rgba(0, 0, 0, 0.8); /* Darker overlay */
 }
 
 /* Women's Section Background */
 .women-choice {
   background-image: url('../assets/Images/womens/greenwoman.png');
-  background-color: rgba(0, 0, 0, 0.8); /* Darker overlay for black theme */
+  background-color: rgba(0, 0, 0, 0.8); /* Darker overlay */
 }
 
 /* Hover Effects for Fashion Choices */
@@ -69,12 +72,12 @@
 /* Media Query for Larger Screens */
 @media (min-width: 768px) {
   .homepage {
-    padding: 40px;
+    padding: 50px 40px; /* Increase padding for larger screens */
   }
 
   /* Adjust title for larger screens */
   .homepage-title {
-    font-size: 2.5em;
+    font-size: 3rem; /* Larger font for desktop */
     margin-bottom: 40px;
   }
 
@@ -82,18 +85,18 @@
   .homepage-choices {
     flex-direction: row;
     justify-content: center;
-    gap: 40px;
-    width:100%
+    gap: 40px; /* More space between choices on desktop */
+    width: 100%;
   }
 
   /* Fashion Choice Section for Desktop */
   .fashion-choice {
-    width: 45%;
-    height: 100vh;
+    width: 45%; /* Allow choices to take half the width */
+    height: 70vh; /* Increase height for desktop */
   }
 }
 
-/* Sophisticated Black & White Hover Effects */
+/* Hover Effects for Larger Screens */
 .men-choice:hover,
 .women-choice:hover {
   opacity: 0.85;

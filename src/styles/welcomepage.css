@@ -1,9 +1,12 @@
-@import url(https://fonts.googleapis.com/css2?family=Beau+Rivage&display=swap);
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400..900&display=swap');
+
 
 .welcome-page {
     position: relative;
     width: 100%;
     min-height: 150vh; /* Adjusted to fill the viewport */
+    font-family: "Cinzel", serif;
+    font: bold;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,11 +15,11 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #f5f5f5; /* Fallback color in case image doesn't load */
+    background-color: snow; /* Fallback color in case image doesn't load */
     animation: slideShow 12s infinite; /* Animation for slideshow effect */
     z-index: 1;
-
 }
+
 /* Keyframes for rotating through background images */
 @keyframes slideShow {
     0% {
@@ -34,12 +37,10 @@
 }
 
 
-
-/* Heading Styling */
+/* Heading Styling with Cinzel Decorative */
 .welcome-page h1 {
     font-size: 2.5rem; /* Increased for better prominence */
-    font-family: "Beau Rivage", cursive;
-  /* font-weight: 400; */
+    font-family: "Cinzel Decorative", serif;
     font-weight: bold;
     margin-bottom: 20px;
     line-height: 1.3;
@@ -47,23 +48,23 @@
     text-transform: uppercase; /* Adds formality */
     letter-spacing: 1.5px; /* Luxurious letter spacing */
     text-align: center; /* Centered for visual balance */
-   
 }
 
-/* Paragraph Text Styling */
+/* Paragraph Text Styling using Cinzel */
 .welcome-page p {
     font-size: 1.2rem; /* Slightly larger for readability */
     line-height: 1.8; /* Increased for spaciousness */
     margin-bottom: 30px;
-    font-family: 'Georgia', serif;
+    font-family: 'Cinzel', serif;
     color: black;
-    padding: 20px; /* Adjusted padding for better spacing */
+    padding: 90px; /* Adjusted padding for better spacing */
     letter-spacing: 0.5px; /* Subtle spacing for readability */
     text-align: justify; /* For formal, justified text */
     font-style: italic; /* Adding sophistication */
     display: block;
     position: relative;
-
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5x)
 }
 
 
@@ -78,7 +79,7 @@
     top: 0;
     left: 0;
     z-index: 2; /* Ensures it stays above the background */
-   background-color: #f5f5f5;
+    background-color: #f5f5f5;
 }
 
 /* Logo and name container */
@@ -95,7 +96,7 @@
     color: black; /* You can adjust the color */
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Cinzel', serif;
 }
 
 /* Links and buttons container */
@@ -113,7 +114,7 @@
     padding: 12px 25px;
     border-radius: 50px; /* Softer, rounded corners */
     transition: background-color 0.3s ease, transform 0.3s ease;
-    font-family: 'Arial', sans-serif; /* Clean, readable font */
+    font-family: 'Cinzel', serif; /* Updated to Cinzel */
     border: 2px solid black; /* Adds a border */
     background-color: transparent;
 }

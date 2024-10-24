@@ -27,7 +27,7 @@
 .authnavbar-center p {
   font-size: 1.8rem;
   font-weight: bold;
-  color: white;
+  /* color: white; */
   font-family: 'Playfair Display', serif; /* Elegant font */
   margin: 0;
 }
@@ -51,7 +51,7 @@
   position: absolute;
   top: 60px; /* Below the navbar */
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.95);
+  /* background-color: rgba(0, 0, 0, 0.95); */
   padding: 15px 0;
   z-index: 999;
   border-radius: 0 0 10px 10px;
@@ -81,8 +81,8 @@
 }
 
 .authnavbar-left a:hover {
-  color: #ffcc00; /* Highlight on hover */
-  border-bottom: 2px solid #ffcc00;
+  color: #a252b8; /* Highlight on hover */
+  border-bottom: 2px solid #a252b8;
 }
 
 /* Responsive design: on larger screens */
@@ -111,7 +111,7 @@
 
   /* Link hover effect */
   .authnavbar-left a:hover {
-    color: #ffcc00; /* Same hover effect for larger screens */
-    border-bottom: 2px solid #ffcc00;
+    color: #a252b8; /* Same hover effect for larger screens */
+    border-bottom: 2px solid #a252b8;
   }
 }

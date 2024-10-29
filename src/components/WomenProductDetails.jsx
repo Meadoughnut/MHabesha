@@ -1,22 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import { useParams, useNavigate } from 'react-router-dom';
 import productsData from '../mock-data/womenProducts.json';
 import '../styles/productdetail.css';
 
-
-const ProductDetails = () => {
+const WomenProductDetails = () => {
   const { id } = useParams();
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
   const [product, setProduct] = useState(null);
   const [cartItems, setCartItems] = useState([]);
-  const userEmail = localStorage.getItem('currentUser') || 'guest'; // Get user email for localStorage key or fallback to 'guest'
+  const userEmail = localStorage.getItem('currentUser') || 'guest';
 
   useEffect(() => {
-    // Fetch product based on ID from params
     const selectedProduct = productsData.find((item) => item.id === parseInt(id));
     setProduct(selectedProduct);
 
-    // Retrieve cart items from localStorage when the component mounts
     const storedCart = JSON.parse(localStorage.getItem(`cartItems-${userEmail}`)) || [];
     setCartItems(storedCart);
   }, [id, userEmail]);
@@ -28,32 +25,27 @@ const ProductDetails = () => {
     }
 
     const existingItemIndex = cartItems.findIndex((item) => item.id === product.id);
-
     let updatedCart;
+
     if (existingItemIndex !== -1) {
-      // If the item exists, update its quantity
       updatedCart = cartItems.map((item, index) =>
         index === existingItemIndex ? { ...item, quantity: item.quantity + 1 } : item
       );
     } else {
-      // If the item does not exist, add it with a quantity of 1
       updatedCart = [...cartItems, { ...product, quantity: 1 }];
     }
 
-    // Update cart and store in localStorage
     setCartItems(updatedCart);
     localStorage.setItem(`cartItems-${userEmail}`, JSON.stringify(updatedCart));
     alert(`${product.name} added to cart!`);
   };
 
-  // Proceed to checkout
   const proceedToCheckout = () => {
     navigate('/checkout');
   };
 
-  // Go Back Function
   const goBack = () => {
-    navigate(-1); // Go back to the previous page
+    navigate(-1);
   };
 
   if (!product) {
@@ -62,19 +54,24 @@ const ProductDetails = () => {
 
   return (
     <div className="product-details">
+      
 
-       {/* Go Back Button at the Top Right Corner */}
-       <button onClick={goBack} className="go-back-button">
-        Go Back
-      </button>
-      <img src={`/assets/images/womenimage/${product.image}`} alt={product.name} className="product-image" />
-      <h1>{product.name}</h1>
-      <p>${product.price.toFixed(2)}</p>
-      <p>{product.description}</p>
-      <button onClick={addToCart}>Add to Cart</button>
-      <button onClick={proceedToCheckout}>Proceed to Checkout</button> {/* Add this button */}
+      <div className="product-image-section">
+        <img src={`/assets/images/womenimage/${product.image}`} alt={product.name} className="product-image" />
+      </div>
+
+      <div className="product-info-section">
+        <h1>{product.name}</h1>
+        <p className="product-price">${product.price.toFixed(2)}</p>
+        <p className="product-description">{product.description}</p>
+
+        <div className="button-container">
+          <button onClick={addToCart} className="add-to-cart-button">Add to Cart</button>
+          <button onClick={proceedToCheckout} className="checkout-button">Proceed to Checkout</button>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default ProductDetails;
+export default WomenProductDetails;

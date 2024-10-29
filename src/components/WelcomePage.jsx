@@ -20,17 +20,7 @@ const WelcomePage = ({ setLoggedIn, setIsGuest }) => {
 
   return (
     <div className="welcome-page">
-      <div className="welcome-header">
-        <div className="welcome-logo">
-          
-          <p> MHabesha Clothing</p>
-        </div>
-        <div className="welcome-links">
-          <Link to="/signup">Sign Up</Link>
-          <Link to="/signin">Sign In</Link>
-          <button onClick={handleGuestClick}>Continue as Guest</button>
-        </div>
-      </div>
+      
 
       {/* Welcome Content */}
       <h1>Discover Luxury.</h1>

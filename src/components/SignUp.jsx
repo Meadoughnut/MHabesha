@@ -1,10 +1,6 @@
-// import React from 'react';
 import React, { useState } from 'react';
-
 import { useNavigate } from 'react-router-dom';
-// import logo from "../assets/logos/logo.png";
-import AuthNavbar from './AuthNavbar'; // Import AuthNavbar
-import '../styles/signup.css'
+import '../styles/signup.css';
 
 const SignUp = () => {
   const [user, setUser] = useState({ name: '', email: '', password: '' });
@@ -31,14 +27,13 @@ const SignUp = () => {
 
       // Redirect to the product page after a short delay
       setTimeout(() => {
-        navigate('/Home');
+        navigate('/home');
       }, 1000);
     }
   };
 
   return (
     <div className="signup-container">
-       <AuthNavbar />
       <h2>Sign Up</h2>
       <form onSubmit={handleSignUp}>
         <input

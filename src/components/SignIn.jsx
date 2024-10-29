@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/signin.css'; // Import custom styles
-import AuthNavbar from './AuthNavbar'; // Import AuthNavbar
 
 const SignIn = ({ setLoggedIn }) => {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -44,13 +43,9 @@ const SignIn = ({ setLoggedIn }) => {
 
   return (
     <div className="signin-container">
-      {/* Render the AuthNavbar */}
-      <AuthNavbar />
-
       <h2>Sign In</h2>
       <form onSubmit={handleSubmit}>
         <div>
-         
           <input
             type="email"
             id="email"
@@ -63,7 +58,6 @@ const SignIn = ({ setLoggedIn }) => {
           />
         </div>
         <div>
-         
           <input
             type="password"
             id="password"

@@ -1,171 +1,73 @@
-/* Container Styling */
+/* Product Grid Styling */
 .product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  /* Responsive grid layout */
-  gap: 20px;
-  padding: 80px 20px 20px;
-  /* Padding to prevent overlap with the navbar */
-  background-color: #000;
-  /* Black background */
-  min-height: 100vh;
-  /* Ensure the content fills the screen */
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px;
+  flex-wrap: wrap;
+  background-color: #ffffff;
 }
 
-/* Product Card Styling */
+/* Individual Product Card Styling */
 .product-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.1);
-  /* Transparent white background */
-  border-radius: 10px;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
-  /* Subtle white shadow */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 240px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  margin-top: 0px;
 }
 
-/* Product Image Styling */
+.product-card:hover {
+  transform: scale(1.05);
+}
+
 .product-image {
   width: 100%;
   height: auto;
-  border-radius: 10px;
   margin-bottom: 15px;
 }
 
-/* Product Name Styling */
-.product-card h3 {
-  font-size: 1.5rem;
-  color: #fff;
-  /* White text */
-  font-family: 'Playfair Display', serif;
-  margin-bottom: 10px;
-}
-
-/* Product Price Styling */
-.product-card p {
-  font-size: 1.2rem;
-  color: #fff;
-  /* White text */
-  margin-bottom: 15px;
-}
-
-/* View Details Link Styling */
-.product-card a {
-  text-decoration: none;
-  color: #fff;
-  /* White text */
+.product-name {
+  font-size: 16px;
   font-weight: bold;
-  background-color: #000;
-  /* Black button background */
-  padding: 10px 20px;
-  border: 2px solid #fff;
-  /* White border */
-  border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  color: #333;
+  margin: 10px 0;
 }
 
-/* Hover Effect for View Details Link */
-.product-card a:hover {
-  background-color: #fff;
-  /* White background on hover */
-  color: #000;
-  /* Black text on hover */
+.product-price {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 15px;
 }
 
-/* Hover Effect for Product Card */
-.product-card:hover {
-  transform: scale(1.05);
-  /* Slight zoom effect */
-  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
-  /* Deeper shadow on hover */
-}
-
-/* productlist.css */
-.quantity-manager {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.quantity-manager button {
-  background-color: #000;
-  color: #fff;
-  padding: 5px 10px;
-  border: none;
-  cursor: pointer;
-}
-
-.quantity-manager span {
-  font-size: 1.2rem;
-}
-/* productlist.css */
-
-/* Container for buttons */
+/* Button Container */
 .button-container {
   display: flex;
-  justify-content: space-between; /* Ensures the buttons are aligned side-by-side */
-  margin-top: 10px; /* Space between buttons and the quantity manager */
+  flex-direction: row;
+  /* align-items: center; */
+  gap: 40px;
 }
 
-/* Add to Cart Button */
-.add-to-cart-btn {
-  background-color: #000;
-  color: #fff;
-  padding: 10px 15px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-/* View Details Button (Styled as Link) */
+.add-to-cart-btn,
 .view-details-btn {
-  background-color: #000;
-  color: #fff;
-  padding: 10px 15px;
   text-decoration: none;
-  border-radius: 5px;
-  display: inline-block;
-  text-align: center;
-  transition: background-color 0.3s ease;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  background: none;
+  border: none;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: color 0.3s, border-bottom 0.3s;
 }
 
-/* Hover effect for both buttons */
-.add-to-cart-btn:hover, .view-details-btn:hover {
-  background-color: #444; /* Darken the background on hover */
-}
-
-
-
-/* Optional responsive styling */
-@media (max-width: 768px) {
-  .button-container {
-    flex-direction: column;
-    gap: 10px; /* Add space between buttons on smaller screens */
-  }
-}
-
-
-
-/* Responsive Design for Smaller Screens */
-@media (max-width: 768px) {
-  .product-grid {
-    grid-template-columns: 1fr;
-    /* Single column on smaller screens */
-    padding: 60px 10px 10px;
-    /* Adjust padding for smaller screens */
-  }
-
-  .product-card h3 {
-    font-size: 1.3rem;
-  }
-
-  .product-card p {
-    font-size: 1rem;
-  }
+.add-to-cart-btn:hover,
+.view-details-btn:hover {
+  color: black;
+  border-bottom: 1px solid black;
 }

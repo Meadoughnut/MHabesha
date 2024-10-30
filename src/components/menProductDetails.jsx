@@ -54,9 +54,7 @@ const menProductDetails = () => {
 
   return (
     <div className="product-details">
-      <button onClick={goBack} className="go-back-button">
-        Go Back
-      </button>
+      
 
       <div className="product-image-section">
         <img src={`/assets/images/mensimage/${product.image}`} alt={product.name} className="product-image" />

@@ -1,0 +1,160 @@
+/* Import Google Fonts for minimalistic, high-end look */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body and General Font Styling */
+html, body {
+  font-family: 'Cormorant Garamond', serif; /* Primary font for a classic look */
+  color: #333; /* Dark gray for minimalist appeal */
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: #fafafa; /* Off-white background for softness */
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', serif; /* Serif font for headings */
+  font-weight: 500; /* Elegant weight */
+  color: #111; /* Darker color for emphasis */
+  margin-bottom: 10px; /* Space below headings */
+}
+
+/* Paragraphs, Links, and Body Text */
+p, a, li, span, input, button {
+  font-family: 'Roboto', sans-serif; /* Sans-serif for body text */
+  color: #333;
+  font-weight: 300;
+  letter-spacing: 0.5px; /* Subtle spacing for elegance */
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #888; /* Lighter gray on hover for subtle effect */
+}
+
+/* Buttons and Form Elements */
+button, input, select, textarea {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #333;
+}
+
+/* Section Spacing */
+section {
+  padding: 40px 0; /* Add space around sections */
+}
+
+/* High Contrast Toggle Label */
+.high-contrast-toggle label {
+  font-size: 14px;
+  color: #555; /* Subtle color for less emphasis */
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.high-contrast-toggle input[type="checkbox"] {
+  margin-left: 10px; /* Space between label and checkbox */
+}
+
+/* Footer Styling */
+.footer {
+  background-color: #111;
+  color: #fafafa;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  margin: 10px 0;
+}
+
+.footer-section h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: #fafafa;
+  margin-bottom: 10px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin: 5px 0;
+}
+
+.footer-section ul li a {
+  color: #fafafa;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  color: #888; /* Light gray on hover */
+}
+
+.footer-social-media-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-social-media-icons svg {
+  width: 24px;
+  height: 24px;
+  stroke: #fafafa;
+  transition: stroke 0.3s;
+}
+
+.footer-social-media-icons svg:hover {
+  stroke: #888; /* Change color on hover */
+}
+
+/* Footer Settings Section */
+.footer-settings {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.footer-settings p {
+  margin-top: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+/* Basic Responsive Design */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-section {
+    margin: 20px 0;
+  }
+}

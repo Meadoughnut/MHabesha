@@ -7,10 +7,12 @@ import Account from './components/Account'; // Import the new Account component
 import Dashboard from './components/Dashboard';
 import MenPage from './components/MenProductList';
 import WomenPage from './components/WomenProductList';
-import MenProductDetails from './components/MenProductDetails';
+import MenProductDetails from './components/menProductDetails';
 import WomenProductDetails from './components/WomenProductDetails';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
+import Footer from './components/Footer';
+import "./index.css"
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(() => {
@@ -26,18 +28,20 @@ const App = () => {
     <Router>
       <div className="app-container">
         <Navbar loggedIn={loggedIn} setLoggedIn={handleLogin} /> {/* Pass to Navbar if needed */}
-
-        <Routes>
-          <Route path="/" element={<WelcomePage />} />
-          <Route path="/account" element={<Account setLoggedIn={handleLogin} />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/men" element={<MenPage />} />
-          <Route path="/women" element={<WomenPage />} />
-          <Route path="/menproduct/:id" element={<MenProductDetails />} />
-          <Route path="/womenproduct/:id" element={<WomenProductDetails />} />
-          <Route path="/cart" element={loggedIn ? <Cart /> : <Account setLoggedIn={handleLogin} />} />
-          <Route path="/checkout" element={loggedIn ? <Checkout /> : <Account setLoggedIn={handleLogin} />} />
-        </Routes>
+        <main>
+          <Routes>
+            <Route path="/" element={<WelcomePage />} />
+            <Route path="/account" element={<Account setLoggedIn={handleLogin} />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/men" element={<MenPage />} />
+            <Route path="/women" element={<WomenPage />} />
+            <Route path="/menproduct/:id" element={<MenProductDetails />} />
+            <Route path="/womenproduct/:id" element={<WomenProductDetails />} />
+            <Route path="/cart" element={loggedIn ? <Cart /> : <Account setLoggedIn={handleLogin} />} />
+            <Route path="/checkout" element={loggedIn ? <Checkout /> : <Account setLoggedIn={handleLogin} />} />
+          </Routes>
+        </main>
+        <Footer />
       </div>
     </Router>
   );

@@ -3,161 +3,98 @@ import '../styles/checkout.css';
 
 const Checkout = () => {
   const [formData, setFormData] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
     address: '',
-    paymentCardNumber: '',
-    paymentExpiry: '',
-    paymentCVV: '',
+    city: '',
+    zip: '',
+    state: '',
+    cardName: '',
+    cardNumber: '',
+    expiryMonth: '',
+    expiryYear: '',
+    cvv: '',
+    phoneNumber: '',
   });
 
   const [cartItems, setCartItems] = useState([]);
-  const [orderPlaced, setOrderPlaced] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem('cartItems')) || [];
     setCartItems(storedCart);
+    const price = storedCart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    setTotalPrice(price);
   }, []);
 
-  const validateForm = () => {
-    const newErrors = {};
-    if (!formData.name) newErrors.name = 'Name is required';
-    if (!formData.address) newErrors.address = 'Address is required';
-    if (!formData.paymentCardNumber) newErrors.paymentCardNumber = 'Card number is required';
-    if (!formData.paymentExpiry) newErrors.paymentExpiry = 'Expiry date is required';
-    if (!formData.paymentCVV) newErrors.paymentCVV = 'CVV is required';
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
+  const handlePlaceOrder = (e) => {
     e.preventDefault();
-    if (!validateForm()) {
-      return;
-    }
-
-    setLoading(true);
-    setTimeout(() => {
-      console.log('Order details:', formData);
-      localStorage.removeItem('cartItems');
-      setOrderPlaced(true);
-      setLoading(false);
-    }, 2000);
+    alert("Order placed successfully!");
   };
-
-  if (loading) {
-    return (
-      <div className="loading-spinner">
-        <div className="spinner"></div>
-        <p>Processing your order...</p>
-      </div>
-    );
-  }
-
-  if (orderPlaced) {
-    return (
-      <div className="order-confirmation">
-        <h1>Thank you for your order!</h1>
-        <p>Your order has been placed successfully. We will ship your items soon.</p>
-      </div>
-    );
-  }
-
-  const totalPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   return (
     <div className="checkout">
-      <h1>Checkout</h1>
-      <h2>Order Summary</h2>
-      {cartItems.length === 0 ? (
-        <p>Your cart is empty!</p>
-      ) : (
-        <div className="order-summary">
-          {cartItems.map((item) => (
-            <div key={item.id}>
-              <p>{item.name} (x{item.quantity}) - ${item.price.toFixed(2)}</p>
-            </div>
-          ))}
-          <p><strong>Total: ${totalPrice.toFixed(2)}</strong></p>
+      <h1>CHECKOUT</h1>
+
+      {/* Account Section */}
+      <section>
+        <h2>1. ACCOUNT</h2>
+        <p>Welcome, Meadin</p>
+      </section>
+
+      {/* Delivery Method Section */}
+      <section>
+        <h2>2. DELIVERY METHOD</h2>
+        <p>We only ship to addresses within the United States.</p>
+        <div className="delivery-form">
+          <input type="text" name="firstName" placeholder="First name" onChange={handleInputChange} required />
+          <input type="text" name="lastName" placeholder="Last name" onChange={handleInputChange} required />
+          <input type="text" name="address" placeholder="Address" onChange={handleInputChange} required />
+          <input type="text" name="city" placeholder="City" onChange={handleInputChange} required />
+          <input type="text" name="state" placeholder="State" onChange={handleInputChange} required />
+          <input type="text" name="zip" placeholder="Zip code" onChange={handleInputChange} required />
         </div>
-      )}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Name</label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            autoComplete="name"
-            placeholder="John Doe"
-          />
-          {errors.name && <p className="error">{errors.name}</p>}
-        </div>
-        <div>
-          <label>Address</label>
-          <input
-            type="text"
-            name="address"
-            value={formData.address}
-            onChange={handleChange}
-            required
-            autoComplete="street-address"
-            placeholder="123 Main St, Apt 4B"
-          />
-          {errors.address && <p className="error">{errors.address}</p>}
-        </div>
-        <div>
-          <label>Card Number</label>
-          <input
-            type="text"
-            name="paymentCardNumber"
-            value={formData.paymentCardNumber}
-            onChange={handleChange}
-            required
-            autoComplete="cc-number"
-            placeholder="1234 5678 9012 3456"
-            maxLength={19}
-          />
-          {errors.paymentCardNumber && <p className="error">{errors.paymentCardNumber}</p>}
-        </div>
-        <div>
-          <label>Expiry Date</label>
-          <input
-            type="text"
-            name="paymentExpiry"
-            value={formData.paymentExpiry}
-            onChange={handleChange}
-            required
-            autoComplete="cc-exp"
-            placeholder="MM/YY"
-            maxLength={5}
-          />
-          {errors.paymentExpiry && <p className="error">{errors.paymentExpiry}</p>}
-        </div>
-        <div>
-          <label>CVV</label>
-          <input
-            type="password"
-            name="paymentCVV"
-            value={formData.paymentCVV}
-            onChange={handleChange}
-            required
-            autoComplete="cc-csc"
-            placeholder="123"
-            maxLength={3}
-          />
-          {errors.paymentCVV && <p className="error">{errors.paymentCVV}</p>}
-        </div>
-        <button type="submit">Place Order</button>
-      </form>
+      </section>
+
+      {/* Order Summary Section */}
+      <section className="order-summary">
+        <h2>Order Summary</h2>
+        {cartItems.map(item => (
+          <div key={item.id} className="summary-item">
+            <p>{item.name} - QTY {item.quantity}</p>
+            <p>${(item.price * item.quantity).toFixed(2)}</p>
+          </div>
+        ))}
+        <p>Subtotal: ${totalPrice.toFixed(2)}</p>
+        <p>Taxes: $8.60</p>
+        <p>Delivery method: Complimentary</p>
+        <p>Total: ${(totalPrice + 8.6).toFixed(2)}</p>
+      </section>
+
+      {/* Billing Section */}
+      <section>
+        <h2>3. BILLING</h2>
+        <form onSubmit={handlePlaceOrder}>
+          <div className="payment-method">
+            <button type="button">Payment Cards</button>
+            <button type="button">PayPal</button>
+          </div>
+          <input type="text" name="cardName" placeholder="Name on card" onChange={handleInputChange} required />
+          <input type="text" name="cardNumber" placeholder="Card number" onChange={handleInputChange} required />
+          <div className="expiry-cvv">
+            <input type="text" name="expiryMonth" placeholder="MM" maxLength="2" onChange={handleInputChange} required />
+            <input type="text" name="expiryYear" placeholder="YY" maxLength="2" onChange={handleInputChange} required />
+            <input type="text" name="cvv" placeholder="CVV" maxLength="3" onChange={handleInputChange} required />
+          </div>
+          <input type="tel" name="phoneNumber" placeholder="Phone Number" onChange={handleInputChange} required />
+          <button type="submit" className="place-order-button">PLACE ORDER</button>
+        </form>
+      </section>
     </div>
   );
 };

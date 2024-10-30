@@ -1,108 +1,108 @@
 /* Account Page Container */
 .account-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 40px;
-    text-align: center;
-    font-family: Arial, sans-serif;
-  }
-  
-  .account-container h1 {
-    font-size: 28px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 30px;
-  }
-  
-  /* Tabs */
-  .tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .tabs button {
-    flex: 1;
-    padding: 15px;
-    font-size: 16px;
-    background: none;
-    border: none;
-    border-bottom: 2px solid #ddd;
-    cursor: pointer;
-    transition: color 0.3s, border-color 0.3s;
-  }
-  
-  .tabs button.active {
-    color: black;
-    border-bottom: 2px solid black;
-  }
-  
-  /* Form Container */
-  .form-container {
-    text-align: left;
-    padding-top: 20px;
-  }
-  
-  .form-container h2 {
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-  
-  .form-container p {
-    color: #666;
-    margin-bottom: 15px;
-    font-size: 14px;
-  }
-  
-  .form-container input[type="email"],
-  .form-container input[type="password"],
-  .form-container input[type="text"] {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    font-size: 14px;
-  }
-  
-  .forgot-password {
-    font-size: 14px;
-    color: #333;
-    text-decoration: none;
-    display: inline-block;
-    margin: 5px 0 15px;
-  }
-  
-  .checkbox-container {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    margin-bottom: 20px;
-  }
-  
-  .checkbox-container input {
-    margin-right: 10px;
-  }
-  
-  .submit-button {
-    width: 100%;
-    padding: 12px;
-    background-color: black;
-    color: white;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .submit-button:hover {
-    background-color: #333;
-  }
-  
-  .message {
-    font-size: 14px;
-    color: #666;
-    margin-top: 10px;
-  }
-  
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 40px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.account-container h1 {
+  font-size: 28px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  flex: 1;
+  padding: 15px;
+  font-size: 16px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  cursor: pointer;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.tabs button.active {
+  color: black;
+  border-bottom: 2px solid black;
+}
+
+/* Form Container */
+.form-container {
+  text-align: left;
+  padding-top: 20px;
+}
+
+.form-container h2 {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.form-container p {
+  color: #666;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.form-container label {
+  font-size: 14px;
+  color: #333;
+  margin-top: 20px;
+  display: block;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"],
+.form-container select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  color: #333;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-container input[type="text"]:focus,
+.form-container input[type="email"]:focus,
+.form-container input[type="password"]:focus,
+.form-container select:focus {
+  border-bottom: 1px solid black;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.submit-button:hover {
+  background-color: #333;
+}
+
+.message {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+}

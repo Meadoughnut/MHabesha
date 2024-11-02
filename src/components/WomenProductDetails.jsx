@@ -57,7 +57,7 @@ const WomenProductDetails = () => {
       
 
       <div className="product-image-section">
-        <img src={`/assets/images/womenimage/${product.image}`} alt={product.name} className="product-image" />
+        <img src={`./assets/images/womenimage/${product.image}`} alt={product.name} className="product-image" />
       </div>
 
       <div className="product-info-section">

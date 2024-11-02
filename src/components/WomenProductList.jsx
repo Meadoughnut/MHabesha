@@ -29,7 +29,7 @@ const WomenProductList = () => {
     <div className="product-grid">
       {womenProducts.map((product) => {
         // Ensure the image path is correct and images are stored in public/assets/images
-        const imagePath = `/assets/images/womenimage/${product.image}`;
+        const imagePath = `./assets/images/womenimage/${product.image}`;
 
         return (
           <div className="product-card" key={product.id}>

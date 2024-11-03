@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar'; // Unified Navbar component
-import WelcomePage from './components/WelcomePage';
+import MHabesha from './components/MHabesha';
 import Account from './components/Account'; // Import the new Account component
 import Dashboard from './components/Dashboard';
 import MenPage from './components/MenProductList';
@@ -30,7 +30,7 @@ const App = () => {
         <Navbar loggedIn={loggedIn} setLoggedIn={handleLogin} /> {/* Pass to Navbar if needed */}
         <main>
           <Routes>
-            <Route path="/" element={<WelcomePage />} />
+            <Route path="/" element={<MHabesha />} />
             <Route path="/account" element={<Account setLoggedIn={handleLogin} />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/men" element={<MenPage />} />

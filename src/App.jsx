@@ -7,7 +7,7 @@ import Account from './components/Account'; // Import the new Account component
 import Dashboard from './components/Dashboard';
 import MenPage from './components/MenProductList';
 import WomenPage from './components/WomenProductList';
-import MenProductDetails from './components/menProductDetails';
+import MenProductDetails from './components/MenProductDetails';
 import WomenProductDetails from './components/WomenProductDetails';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
@@ -25,7 +25,7 @@ const App = () => {
   };
 
   return (
-    <Router>
+    <Router basename='MHabesha'>
       <div className="app-container">
         <Navbar loggedIn={loggedIn} setLoggedIn={handleLogin} /> {/* Pass to Navbar if needed */}
         <main>

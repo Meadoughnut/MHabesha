@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Cormorant Garamond', serif; /* Serif font for headings */
   font-weight: 500; /* Elegant weight */
   color: #111; /* Darker color for emphasis */
-  margin-bottom: 10px; /* Space below headings */
+  margin-bottom: 20px; /* Space below headings */
 }
 
 /* Paragraphs, Links, and Body Text */
@@ -38,18 +38,11 @@ p, a, li, span, input, button {
 a {
   text-decoration: none;
   color: inherit;
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
 }
 
 a:hover {
   color: #888; /* Lighter gray on hover for subtle effect */
-}
-
-/* Buttons and Form Elements */
-button, input, select, textarea {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  color: #333;
 }
 
 /* Section Spacing */
@@ -57,17 +50,67 @@ section {
   padding: 40px 0; /* Add space around sections */
 }
 
-/* High Contrast Toggle Label */
-.high-contrast-toggle label {
-  font-size: 14px;
-  color: #555; /* Subtle color for less emphasis */
-  display: inline-flex;
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  cursor: pointer;
+  padding: 0 40px;
+  height: 60px;
+  background-color: #fafafa; /* Off-white background to contrast with the footer */
+  border-bottom: 1px solid #ddd;
+  font-family: 'Cormorant Garamond', serif;
 }
 
-.high-contrast-toggle input[type="checkbox"] {
-  margin-left: 10px; /* Space between label and checkbox */
+/* Left Section Styling (Logo or Brand Name) */
+.navbar-left {
+  font-size: 1.5rem; /* Slightly larger font size for brand emphasis */
+  font-weight: 600; /* Adds a bit of weight to the brand name */
+  color: #111;
+}
+
+/* Center Section Styling (If Any) */
+.navbar-center {
+  font-size: 1.2rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Right Section Styling (Navigation Links) */
+.navbar-right {
+  display: flex;
+  gap: 20px; /* Space between each link */
+}
+
+.navbar-right a {
+  font-family: 'Roboto', sans-serif; /* Same font as body text */
+  font-weight: 300; /* Light weight for a sleek look */
+  font-size: 1rem;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-right a:hover {
+  color: #888; /* Subtle hover effect */
+}
+
+/* Button Styling (If Needed in Navbar) */
+.navbar button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #333;
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar button:hover {
+  background-color: #ddd;
+  color: #111;
 }
 
 /* Footer Styling */
@@ -147,8 +190,32 @@ section {
   font-weight: 300;
 }
 
+/* High Contrast Toggle Label */
+.high-contrast-toggle label {
+  font-size: 14px;
+  color: #555; /* Subtle color for less emphasis */
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.high-contrast-toggle input[type="checkbox"] {
+  margin-left: 10px; /* Space between label and checkbox */
+}
+
 /* Basic Responsive Design */
 @media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  .navbar-left, .navbar-center, .navbar-right {
+    text-align: center;
+    margin: 10px 0;
+  }
+
   .footer-content {
     flex-direction: column;
     text-align: center;

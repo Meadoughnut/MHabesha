@@ -23,7 +23,7 @@ const WelcomePage = ({ setLoggedIn, setIsGuest }) => {
       
 
       {/* Welcome Content */}
-      <h1>Discover Luxury.</h1>
+      <h1>Discover Luxury</h1>
       <p>
         Indulge in timeless collections for men and women, curated for those who value the finest in fashion. 
         Our exclusive designs are crafted with precision, ensuring every piece represents elegance and sophistication.

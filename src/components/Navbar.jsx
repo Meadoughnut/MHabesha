@@ -11,12 +11,12 @@ const Navbar = () => {
       </div>
       
       <div className="navbar-center">
-        <p>MHabesha</p>
+      <Link to="/">MHabesha</Link>
       </div>
 
       <div className="navbar-right">
-        <Link to="/cart">🛒</Link> {/* Cart icon */}
-        <Link to="/account">👤</Link> {/* Account icon */}
+        <Link to="/cart"><img width="32" height="32" src="https://img.icons8.com/small/32/bag-front-view.png" alt="bag-front-view"/></Link> {/* Cart icon */}
+        <Link to="/account"><img width="32" height="32" src="https://img.icons8.com/windows/32/user-male-circle.png" alt="user-male-circle"/></Link> {/* Account icon */}
       </div>
     </nav>
   );

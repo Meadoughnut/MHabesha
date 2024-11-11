@@ -39,7 +39,7 @@
     margin-bottom: 30px;
     font-family: 'Cinzel', serif;
     color: black;
-    padding: 90px;
+    padding: 20px; /* Reduced padding for mobile */
     letter-spacing: 0.5px;
     text-align: justify;
     font-style: italic;
@@ -107,23 +107,23 @@
     transform: scale(1.05);
 }
 
-/* Media queries for larger screens */
+/* Media queries for tablets and larger screens */
 @media (min-width: 768px) {
     .content-container {
         width: 60%;
     }
 
-    .content-container h1 {
-        font-size: 2.8rem;
+    .welcome-page h1 {
+        font-size: 3rem;
     }
 
-    .content-container p {
+    .welcome-page p {
         font-size: 1.3rem;
-        line-height: 2;
+        line-height: 1.8;
+        padding: 50px; /* Increased padding for larger screens */
     }
 
     .welcome-links {
-        flex-direction: row;
         gap: 20px;
     }
 
@@ -133,23 +133,48 @@
     }
 }
 
-/* Adjustments for very small screens */
+/* Mobile Responsive Adjustments */
 @media (max-width: 480px) {
     .welcome-page {
         padding: 10px;
+        min-height: 100vh;
     }
 
-    .content-container h1 {
-        font-size: 1.5rem;
+    .welcome-page h1 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        line-height: 1.2;
     }
 
-    .content-container p {
-        font-size: 0.9rem;
+    .welcome-page p {
+        font-size: 1rem;
+        line-height: 1.6;
+        padding: 15px; /* Reduced padding for smaller screens */
         margin-bottom: 20px;
+    }
+
+    .welcome-header {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .welcome-logo p {
+        font-size: 1rem;
+    }
+
+    .welcome-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
     }
 
     .welcome-links a,
     .welcome-links button {
-        width: 80%;
+        padding: 10px 20px;
+        width: 100%;
+        max-width: 300px;
+        font-size: 0.9rem;
     }
 }

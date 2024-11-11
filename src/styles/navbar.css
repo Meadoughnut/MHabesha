@@ -8,7 +8,14 @@
   height: 60px;
   background-color: white;
   border-bottom: 1px solid #f0f0f0;
+
   font-family: 'Cormorant Garamond', serif;
+
+  /* Fixed Positioning */
+  /* position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;  */
 }
 
 /* Left Section Styling */
@@ -27,8 +34,6 @@
 .navbar-left a:hover {
   opacity: 0.85;
 }
-
-
 
 /* Right Section Styling */
 .navbar-right {

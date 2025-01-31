@@ -49,10 +49,7 @@ const Footer = () => {
 
         {/* Settings Section */}
         <div className="footer-section settings">
-          <label className="high-contrast-toggle">
-            <span>Enable high contrast</span>
-            <input type="checkbox" />
-          </label>
+
           <p>Change location and language: United States - English (US)</p>
         </div>
       </div>

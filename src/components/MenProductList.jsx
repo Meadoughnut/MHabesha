@@ -32,16 +32,15 @@ const MenProductList = () => {
 
         return (
           <div className="product-card" key={product.id}>
-            
-            <img src={imagePath} alt={product.name} className="product-image" />
+            <div className="product-image-container">
+              <img src={imagePath} alt={product.name} className="product-image" />
+              <div className="product-overlay">
+                <button onClick={() => addToCart(product)} className="add-to-cart-btn">Add to Cart</button>
+                <Link to={`/menproduct/${product.id}`} className="view-details-btn">View Details</Link>
+              </div>
+            </div>
             <h3 className="product-name">{product.name}</h3>
             <p className="product-price">${product.price.toFixed(2)}</p>
-
-            {/* Buttons Container */}
-            <div className="button-container">
-              <button onClick={() => addToCart(product)} className="add-to-cart-btn">Add to Cart</button>
-              <Link to={`/menproduct/${product.id}`} className="view-details-btn">View Details</Link>
-            </div>
           </div>
         );
       })}
